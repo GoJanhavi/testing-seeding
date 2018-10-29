@@ -5,7 +5,7 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">Contact</div>
+                <div class="card-header"><h2>Contact</h2></div>
 
                 <div class="card-body">
                     <form role="form" id="contact-form" action="{{route('contact.save')}}" method="post">
