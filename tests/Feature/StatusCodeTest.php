@@ -23,4 +23,9 @@ class StatusCodeTest extends TestCase
         $response = $this->get('/about');
         $response->assertStatus(200);
     }
+    public function testContactStatus()
+    {
+        $response = $this->get('/contact');
+        $response->assertStatus(200);
+    }
 }
