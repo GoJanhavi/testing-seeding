@@ -43,4 +43,10 @@ class CarTest extends TestCase
         $this->assertCount($carCount, $car);
     }
 
+    public function testDatatype()
+    {
+        $car = Car::inRandomOrder()->first();
+        $this->assertInternalType('integer',$car->year);
+    }
+
 }
