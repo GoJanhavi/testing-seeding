@@ -2,6 +2,7 @@
 
 namespace Tests\Unit;
 use App\Car;
+use phpDocumentor\Reflection\Types\Integer;
 use function Sodium\increment;
 use Tests\TestCase;
 use Illuminate\Foundation\Testing\WithFaker;
@@ -19,7 +20,7 @@ class CarTest extends TestCase
         $car = factory(Car::class)->create([
             'make' => 'Ford',
             'model' => 'Mustang',
-            'year' => '2018',
+            'year' => 2018,
         ]);
         $this->assertInstanceOf('App\Car', $car);
     }
@@ -43,10 +44,11 @@ class CarTest extends TestCase
         $this->assertCount($carCount, $car);
     }
 
-    public function testDatatype()
+    public function testDataType()
     {
         $car = Car::inRandomOrder()->first();
-        $this->assertInternalType('integer',$car->year);
+        $carInt = (int)$car->year;
+        $this->assertInternalType('int',$carInt);
     }
 
 }
