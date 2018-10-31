@@ -20,7 +20,7 @@ class UserTest extends TestCase
         $user = factory(User::class)->create();
         $this->assertInstanceOf('App\User', $user);
     }
-    public function testCreateUserType2()
+    /*public function testCreateUserType2()
     {
         $user = factory(User::class)->create([
             'name' => 'Janhavi',
@@ -30,13 +30,21 @@ class UserTest extends TestCase
             'remember_token' => str_random(10),
         ]);
         $this->assertInstanceOf('App\User', $user);
-    }
+    }*/
+
     /*test create user ends*/
 
     public function testUpdateUserEntry(){
       //  $user = User::where('email', '=', 'jg688@njit.edu')->get();
         $user= User::find(1);
         $user->name = 'Steve Smith';
-        $this->assertTrue($user->save());
+        $user->save();
+        $updatedUser = User::find(1);
+        $this->assertEquals($updatedUser->name, 'Steve Smith');
+    }
+
+    public function testDeleteUser(){
+        $user= User::find(51);
+        $this->assertTrue($user->delete());
     }
 }
