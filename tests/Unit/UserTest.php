@@ -14,6 +14,7 @@ class UserTest extends TestCase
      *
      * @return void
      */
+    /*test create user starts*/
     public function testCreateUser()
     {
         $user = factory(User::class)->create();
@@ -29,5 +30,13 @@ class UserTest extends TestCase
             'remember_token' => str_random(10),
         ]);
         $this->assertInstanceOf('App\User', $user);
+    }
+    /*test create user ends*/
+
+    public function testUpdateUserEntry(){
+      //  $user = User::where('email', '=', 'jg688@njit.edu')->get();
+        $user= User::find(1);
+        $user->name = 'Steve Smith';
+        $this->assertTrue($user->save());
     }
 }
