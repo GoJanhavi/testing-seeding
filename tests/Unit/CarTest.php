@@ -31,4 +31,9 @@ class CarTest extends TestCase
         $updatedCar = Car::find(1);
         $this->assertEquals($updatedCar->year, 2000);
     }
+
+    public function testDeleteCarEntry(){
+        $car= Car::find(1);
+        $this->assertTrue($car->delete());
+    }
 }
