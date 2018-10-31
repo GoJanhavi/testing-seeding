@@ -56,4 +56,9 @@ class CarTest extends TestCase
         $this->assertContains($car->make, ['Ford','Honda','Toyota']);
     }
 
+    public function testModelDataType()
+    {
+        $carModel = Car::inRandomOrder()->first()->model;
+        $this->assertInternalType('string',$carModel);
+    }
 }
