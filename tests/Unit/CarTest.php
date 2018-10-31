@@ -23,4 +23,12 @@ class CarTest extends TestCase
         ]);
         $this->assertInstanceOf('App\Car', $car);
     }
+
+    public function testUpdateCarEntry(){
+        $car= Car::find(1);
+        $car->year = 2000;
+        $car->save();
+        $updatedCar = Car::find(1);
+        $this->assertEquals($updatedCar->year, 2000);
+    }
 }
