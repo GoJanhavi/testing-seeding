@@ -28,7 +28,7 @@ class User extends Authenticatable
         'password', 'remember_token',
     ];
 
-    public function car(){
+    /*public function car(){
         return $this->hasMany('App\Car');
-    }
+    }*/
 }
