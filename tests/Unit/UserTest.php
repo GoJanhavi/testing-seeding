@@ -14,6 +14,12 @@ class UserTest extends TestCase
      *
      * @return void
      */
+    public function testRecordCount(){
+        $user = User::all();
+        $userCount = 50;
+        $this->assertCount($userCount, $user);
+    }
+
     /*test create user starts*/
     public function testCreateUser()
     {
@@ -44,7 +50,9 @@ class UserTest extends TestCase
     }
 
     public function testDeleteUser(){
-        $user= User::find(51);
+        $user= User::find(1);
         $this->assertTrue($user->delete());
     }
+
+
 }
